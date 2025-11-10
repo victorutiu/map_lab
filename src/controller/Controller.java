@@ -10,9 +10,14 @@ import repository.IRepository;
 public class Controller implements IController {
 
     private IRepository repository;
+    private boolean displayFlag = true;
 
     public Controller(IRepository repository) {
         this.repository = repository;
+    }
+
+    public void setDisplayFlag(boolean value) {
+        this.displayFlag = value;
     }
 
     public ProgramState oneStep(ProgramState state) throws Exception {
@@ -28,10 +33,16 @@ public class Controller implements IController {
 
     public void allStep() throws Exception {
         ProgramState program = repository.getCurrentProgram();
+        repository.loggingProgramStateExec();
 
         while(!program.getExecutionStack().isEmpty()) {
             oneStep(program);
-            displayCurrentProgram();
+            //displayCurrentProgram();
+            repository.loggingProgramStateExec();
+
+            if (displayFlag) {
+                System.out.println(program.toString());
+            }
         }
 
     }

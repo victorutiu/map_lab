@@ -40,7 +40,10 @@ public class MyDictionary<Key, Value> implements MyIDictionary<Key, Value> {
     }
 
     @Override
-    public void remove(Key key) {
+    public void remove(Key key) throws Exception {
+        if (!dictionary.containsKey(key)) {
+            throw new DictionaryException("Key not found: " + key);
+        }
         dictionary.remove(key);
     }
 

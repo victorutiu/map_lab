@@ -7,5 +7,6 @@ import exceptions.DictionaryException;
 
 public interface IExpression  {
     IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception;
+    IExpression deepCopy();
 }
 

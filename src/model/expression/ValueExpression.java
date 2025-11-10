@@ -18,6 +18,11 @@ public class ValueExpression implements IExpression {
     }
 
     @Override
+    public IExpression deepCopy() {
+        return new ValueExpression(constantValue);
+    }
+
+    @Override
     public String toString() {
         return constantValue.toString();
     }

@@ -9,7 +9,7 @@ public interface MyIDictionary<Key, Value> {
     void update(Key key, Value value) throws Exception;
     Value lookup(Key key) throws Exception;
     boolean isDefined(Key key);
-    void remove(Key key);
+    void remove(Key key) throws Exception;
     Map<Key, Value> getContent();
 }
 

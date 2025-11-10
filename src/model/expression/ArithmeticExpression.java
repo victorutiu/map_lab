@@ -47,6 +47,11 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
+    public IExpression deepCopy() {
+        return new ArithmeticExpression(leftExpression.deepCopy(), rightExpression.deepCopy(), operationCode);
+    }
+
+    @Override
     public String toString() {
         String operatorSymbol = switch (operationCode) {
             case 1 -> "+";

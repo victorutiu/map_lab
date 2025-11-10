@@ -43,6 +43,11 @@ public class LogicalExpression implements IExpression {
     }
 
     @Override
+    public IExpression deepCopy() {
+        return new LogicalExpression(leftExpression.deepCopy(), rightExpression.deepCopy(), operationCode);
+    }
+
+    @Override
     public String toString() {
         String operatorSymbol = switch (operationCode) {
             case 1 -> "&&";

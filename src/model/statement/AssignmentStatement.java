@@ -38,6 +38,11 @@ public class AssignmentStatement implements IStatement {
         return state;
     }
 
+    @Override
+    public IStatement deepCopy() {
+        return new AssignmentStatement(variableName, expression.deepCopy());
+    }
+
 
     @Override
     public String toString() {

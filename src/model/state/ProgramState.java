@@ -5,23 +5,27 @@ import model.adt.MyIDictionary;
 import model.adt.MyIList;
 import model.statement.IStatement;
 import model.value.IValue;
+import java.io.BufferedReader;
+import model.value.StringValue;
 
 public class ProgramState {
 
-    private final MyIStack<IStatement> executionStack;
-    private final MyIDictionary<String, IValue> symbolTable;
-    private final MyIList<IValue> outputList;
-    private final IStatement originalProgram;
-
+    private  MyIStack<IStatement> executionStack;
+    private  MyIDictionary<String, IValue> symbolTable;
+    private  MyIList<IValue> outputList;
+    private  IStatement originalProgram;
+    private  MyIDictionary<StringValue, BufferedReader> fileTable;
     public ProgramState(MyIStack<IStatement> executionStack,
                         MyIDictionary<String, IValue> symbolTable,
                         MyIList<IValue> outputList,
+                        MyIDictionary<StringValue, BufferedReader> fileTable,
                         IStatement program) {
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
         this.outputList = outputList;
-        this.originalProgram = program;
-        this.executionStack.push(program);
+        this.fileTable = fileTable;
+        this.originalProgram = program.deepCopy();
+        this.executionStack.push(this.originalProgram);
     }
 
     public MyIStack<IStatement> getExecutionStack() {
@@ -39,6 +43,11 @@ public class ProgramState {
     public IStatement getOriginalProgram() {
         return originalProgram;
     }
+
+    public MyIDictionary<StringValue, BufferedReader> getFileTable() {
+        return fileTable;
+    }
+
 
     @Override
     public String toString() {

@@ -25,12 +25,16 @@ public class VariableDeclarationStatement implements IStatement {
             throw new VariableAlreadyExistsException("Variable '" + variableName + "' already exists");
         }
 
-        IValue defaultValue = getDefauldValue(variableType);
+        IValue defaultValue = variableType.defaultValue();
         symbolTable.put(variableName, defaultValue);
         return state;
     }
 
-    private IValue getDefauldValue(IType variableType) throws DictionaryException {
+    @Override
+    public IStatement deepCopy() {
+        return new VariableDeclarationStatement(variableName, variableType);
+    }
+    /*private IValue getDefauldValue(IType variableType) throws DictionaryException {
         if (variableType instanceof IntegerType) {
             return new IntegerValue(0);
         } else if (variableType instanceof BooleanType) {
@@ -39,7 +43,7 @@ public class VariableDeclarationStatement implements IStatement {
             throw new DictionaryException("Invalid variable type");
         }
     }
-
+   */
     @Override
     public String toString() {
         return variableType + " " + variableName;

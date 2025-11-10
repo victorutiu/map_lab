@@ -23,4 +23,9 @@ public class BooleanValue implements IValue {
     public String toString() {
         return String.valueOf(value);
     }
+
+    @Override
+    public IValue deepCopy() {
+        return new BooleanValue(value);
+    }
 }

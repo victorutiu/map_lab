@@ -40,17 +40,19 @@ public class View {
         }
     }
 
-    private void runProgram(IStatement program) {
+    public void runProgram(IStatement program) {
         try {
             ProgramState state = new ProgramState(
                     new MyStack<>(),
                     new MyDictionary<>(),
                     new MyList<>(),
+                    new MyDictionary<>(),
                     program
             );
 
-            IRepository repository = new Repository(state);
+            IRepository repository = new Repository(state,"log.txt");
             IController controller = new Controller(repository);
+            controller.setDisplayFlag(true);
             controller.allStep();
 
         } catch (Exception e) {
@@ -59,7 +61,40 @@ public class View {
 
     }
 
+    public IStatement createFileExample() {
+        IStatement declareVarf = new VariableDeclarationStatement("varf", new StringType());
 
+        IStatement assignVarf = new AssignmentStatement("varf", new ValueExpression(new StringValue("src/test.in")));
+
+        IStatement openFile = new OpenRFileStatement(new VariableExpression("varf"));
+
+        IStatement declareVarc = new VariableDeclarationStatement("varc", new IntegerType());
+
+        IStatement readVarc1 = new ReadFileStatement(new VariableExpression("varf"), "varc");
+
+        IStatement printVarc1 = new PrintStatement(new VariableExpression("varc"));
+
+        IStatement readVarc2 = new ReadFileStatement(new VariableExpression("varf"), "varc");
+
+        IStatement printVarc2 = new PrintStatement(new VariableExpression("varc"));
+
+        IStatement closeFile = new CloseRFileStatement(new VariableExpression("varf"));
+
+        return new CompoundStatement(declareVarf, new CompoundStatement(assignVarf,
+                                                       new CompoundStatement(openFile,
+                                                           new CompoundStatement(declareVarc,
+                                                                   new CompoundStatement(readVarc1,
+                                                                           new CompoundStatement(printVarc1,
+                                                                                   new CompoundStatement(readVarc2,
+                                                                                           new CompoundStatement(printVarc2, closeFile)
+                                                                                   )
+                                                                           )
+                                                                   )
+                                                           )
+                                                      )
+                                                  )
+              );
+    }
     private IStatement createExample1() {
         // int v; v = 2; print(v);
         return new CompoundStatement(

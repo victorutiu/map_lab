@@ -7,4 +7,5 @@ import exceptions.ListException;
 
 public interface IStatement {
     ProgramState execute(ProgramState state) throws Exception;
+    IStatement deepCopy();
 }
