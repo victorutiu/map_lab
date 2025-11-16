@@ -1,0 +1,504 @@
+ExeStack:
+[(string varf;(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[(string varf;(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = src/test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[int varc, (openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[print(varc), (openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[(print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[print(varc), closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0, 0]
+
+ExeStack:
+[]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0, 0]
+
+ExeStack:
+[(string varf;(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[(string varf;(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=test.in}
+Out:
+[]
+
+ExeStack:
+[(string varf;(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = src/test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[int varc, (openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[print(varc), (openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[(print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[print(varc), closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0]
+
+ExeStack:
+[closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0, 0]
+
+ExeStack:
+[]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[0, 0]
+
+ExeStack:
+[(string varf;(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[string varf, (varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[varf = src/test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[int varc, (openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Out:
+[]
+
+ExeStack:
+[(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=15}
+Out:
+[]
+
+ExeStack:
+[print(varc), (openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Out:
+[]
+
+ExeStack:
+[(openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Out:
+[15]
+
+ExeStack:
+[openRFile(varf, varc), (print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=15}
+Out:
+[15]
+
+ExeStack:
+[(print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=50}
+Out:
+[15]
+
+ExeStack:
+[print(varc), closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Out:
+[15]
+
+ExeStack:
+[closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Out:
+[15, 50]
+
+ExeStack:
+[]
+SymTable:
+{varf=src/test.in, varc=50}
+Out:
+[15, 50]
+

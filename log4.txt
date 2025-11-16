@@ -1,0 +1,161 @@
+ExeStack:
+[(int a;(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[int a, (int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{a=0}
+Out:
+[]
+
+ExeStack:
+[int b, (a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0}
+Out:
+[]
+
+ExeStack:
+[(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0, b=0}
+Out:
+[]
+
+ExeStack:
+[a = 5, (b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=0, b=0}
+Out:
+[]
+
+ExeStack:
+[(b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=5, b=0}
+Out:
+[]
+
+ExeStack:
+[b = 7, If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=0}
+Out:
+[]
+
+ExeStack:
+[If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=7}
+Out:
+[]
+
+ExeStack:
+[print(true)]
+SymTable:
+{a=5, b=7}
+Out:
+[]
+
+ExeStack:
+[]
+SymTable:
+{a=5, b=7}
+Out:
+[true]
+
+ExeStack:
+[]
+SymTable:
+{a=5, b=7}
+Out:
+[true]
+
+ExeStack:
+[(int a;(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[int a, (int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{}
+Out:
+[]
+
+ExeStack:
+[(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{a=0}
+Out:
+[]
+
+ExeStack:
+[int b, (a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0}
+Out:
+[]
+
+ExeStack:
+[(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0, b=0}
+Out:
+[]
+
+ExeStack:
+[a = 5, (b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=0, b=0}
+Out:
+[]
+
+ExeStack:
+[(b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=5, b=0}
+Out:
+[]
+
+ExeStack:
+[b = 7, If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=0}
+Out:
+[]
+
+ExeStack:
+[If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=7}
+Out:
+[]
+
+ExeStack:
+[print(true)]
+SymTable:
+{a=5, b=7}
+Out:
+[]
+
+ExeStack:
+[]
+SymTable:
+{a=5, b=7}
+Out:
+[true]
+
