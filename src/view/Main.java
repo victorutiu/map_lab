@@ -138,15 +138,23 @@ public class Main {
         IController ctr4 = new Controller(repo4);
 
 
-
-        // Ref int v; new(v, 20); print(v);
         IStatement ex5 = new CompoundStatement(
-                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
-                new CompoundStatement(
-                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
-                        new PrintStatement(new VariableExpression("v"))
-                )
-        );
+                                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                                new CompoundStatement(
+                                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                                        new CompoundStatement(
+                                                new VariableDeclarationStatement("a", new RefType(new RefType(new IntegerType()))),
+                                                new CompoundStatement(
+                                                        new NewStatement("a", new VariableExpression("v")),
+                                                        new CompoundStatement(
+                                                            new PrintStatement(new VariableExpression("v")),
+                                                            new PrintStatement(new VariableExpression("a"))
+                                                        )
+                                                )
+                                        )
+                                )
+                );
+
 
         ProgramState prg5 = new ProgramState(
                 new MyStack<>(),
@@ -162,12 +170,32 @@ public class Main {
 
 
         IStatement ex6 = new CompoundStatement(
-                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
-                new CompoundStatement(
-                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
-                        new PrintStatement(new ReadHeapExpression(new VariableExpression("v")))
-                )
-        );
+                                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                                new CompoundStatement(
+                                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                                        new CompoundStatement(
+                                                new VariableDeclarationStatement("a", new RefType(new RefType(new IntegerType()))),
+                                                new CompoundStatement(
+                                                        new NewStatement("a", new VariableExpression("v")),
+                                                        new CompoundStatement(
+                                                                new PrintStatement(new ReadHeapExpression(new VariableExpression("v"))),
+                                                                new PrintStatement(
+                                                                        new ArithmeticExpression(
+                                                                            new ReadHeapExpression(
+                                                                                new ReadHeapExpression(
+                                                                                        new VariableExpression("a")
+                                                                                )
+                                                                            ),
+                                                                        new ValueExpression(new IntegerValue(5)),
+                                                                        1
+                                                                        )
+                                                                )
+                                                         )
+                                                )
+                                        )
+                                )
+                    );
+
 
         ProgramState prg6 = new ProgramState(
                 new MyStack<>(),
@@ -183,18 +211,25 @@ public class Main {
 
 
         IStatement ex7 = new CompoundStatement(
-                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
-                new CompoundStatement(
-                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
-                        new CompoundStatement(
-                                new PrintStatement(new ReadHeapExpression(new VariableExpression("v"))),
+                                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
                                 new CompoundStatement(
-                                        new WriteHeapStatement("v", new ValueExpression(new IntegerValue(30))),
-                                        new PrintStatement(new ReadHeapExpression(new VariableExpression("v")))
+                                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                                        new CompoundStatement(
+                                                new PrintStatement(new ReadHeapExpression(new VariableExpression("v"))),
+                                                new CompoundStatement(
+                                                        new WriteHeapStatement("v", new ValueExpression(new IntegerValue(30))),
+                                                        new PrintStatement(
+                                                            new ArithmeticExpression(
+                                                                new ReadHeapExpression(new VariableExpression("v")),
+                                                                new ValueExpression(new IntegerValue(5)),
+                                                                1
+                                                            )
+                                                        )
+                                                )
+                                        )
                                 )
-                        )
-                )
-        );
+                        );
+
 
         ProgramState prg7 = new ProgramState(
                 new MyStack<>(),
