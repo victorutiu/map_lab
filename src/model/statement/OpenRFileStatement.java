@@ -25,7 +25,7 @@ public class OpenRFileStatement implements IStatement{
         MyIDictionary<String, IValue> symbolTable = state.getSymbolTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
 
-        IValue value = expression.evaluate(symbolTable);
+        IValue value = expression.evaluate(symbolTable, state.getHeap());
         if (!(value.getType() instanceof StringType)) {
             throw new ExpressionException("open file: expression must evaluate to a string.");
         }

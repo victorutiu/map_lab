@@ -7,6 +7,7 @@ import model.adt.MyIDictionary;
 import model.value.IValue;
 import model.value.BooleanValue;
 import model.type.BooleanType;
+import model.adt.MyIHeap;
 
 public class LogicalExpression implements IExpression {
 
@@ -21,13 +22,13 @@ public class LogicalExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception {
-        IValue leftValue = leftExpression.evaluate(symbolTable);
+    public IValue evaluate(MyIDictionary<String, IValue> symbolTable, MyIHeap heap) throws Exception {
+        IValue leftValue = leftExpression.evaluate(symbolTable,heap);
         if (!leftValue.getType().equals(new BooleanType())) {
             throw new FirstOperandNotGoodException("First operand is not a boolean.");
         }
 
-        IValue rightValue = rightExpression.evaluate(symbolTable);
+        IValue rightValue = rightExpression.evaluate(symbolTable, heap);
         if (!rightValue.getType().equals(new BooleanType())) {
             throw new SecondOperandNotGoodException("Second operand is not a boolean.");
         }

@@ -5,6 +5,7 @@ import model.value.IValue;
 import model.value.IntegerValue;
 import model.type.IntegerType;
 import exceptions.*;
+import model.adt.MyIHeap;
 
 public class ArithmeticExpression implements IExpression {
     private IExpression leftExpression;
@@ -18,13 +19,13 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception{
-        IValue leftValue = leftExpression.evaluate(symbolTable);
+    public IValue evaluate(MyIDictionary<String, IValue> symbolTable, MyIHeap heap) throws Exception{
+        IValue leftValue = leftExpression.evaluate(symbolTable,heap);
         if (!leftValue.getType().equals(new IntegerType())) {
             throw new FirstOperandNotGoodException("First operand is not an integer");
         }
 
-        IValue rightValue = rightExpression.evaluate(symbolTable);
+        IValue rightValue = rightExpression.evaluate(symbolTable,heap);
         if (!rightValue.getType().equals(new IntegerType())) {
             throw new SecondOperandNotGoodException("Second operand is not an integer");
         }

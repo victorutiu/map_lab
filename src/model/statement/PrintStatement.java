@@ -21,7 +21,7 @@ public class PrintStatement implements IStatement {
         var outputList = state.getOutputList();
         var symbolTable = state.getSymbolTable();
 
-        IValue value = expression.evaluate(symbolTable);
+        IValue value = expression.evaluate(symbolTable, state.getHeap());
         outputList.add(value);
         return state;
     }

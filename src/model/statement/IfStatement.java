@@ -24,7 +24,7 @@ public class IfStatement implements IStatement {
         var stack = state.getExecutionStack();
         var symbolTable = state.getSymbolTable();
 
-        IValue conditionValue = conditionExpression.evaluate(symbolTable);
+        IValue conditionValue = conditionExpression.evaluate(symbolTable, state.getHeap());
 
         if (!(conditionValue instanceof BooleanValue)) {
             throw new ExpressionException("Condition is not a boolean.");

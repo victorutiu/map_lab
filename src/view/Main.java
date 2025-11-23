@@ -29,6 +29,7 @@ public class Main {
                 new MyDictionary<>(),
                 new MyList<>(),
                 new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
                 ex1);
 
         IRepository repo1 = new Repository(prg1, "log1.txt");
@@ -71,6 +72,7 @@ public class Main {
                 new MyDictionary<>(),
                 new MyList<>(),
                 new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
                 ex2
         );
         IRepository repo2 = new Repository(prg2, "log2.txt");
@@ -93,6 +95,7 @@ public class Main {
                 new MyDictionary<>(),
                 new MyList<>(),
                 new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
                 ex3
         );
         IRepository repo3 = new Repository(prg3, "log3.txt");
@@ -127,11 +130,163 @@ public class Main {
                 new MyDictionary<>(),
                 new MyList<>(),
                 new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
                 ex4
         );
 
         IRepository repo4 =  new Repository(prg4, "log4.txt");
         IController ctr4 = new Controller(repo4);
+
+
+
+        // Ref int v; new(v, 20); print(v);
+        IStatement ex5 = new CompoundStatement(
+                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                new CompoundStatement(
+                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                        new PrintStatement(new VariableExpression("v"))
+                )
+        );
+
+        ProgramState prg5 = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
+                ex5
+        );
+
+        IRepository repo5 = new Repository(prg5, "log5.txt");
+        IController ctr5 = new Controller(repo5);
+
+
+        IStatement ex6 = new CompoundStatement(
+                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                new CompoundStatement(
+                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                        new PrintStatement(new ReadHeapExpression(new VariableExpression("v")))
+                )
+        );
+
+        ProgramState prg6 = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
+                ex6
+        );
+
+        IRepository repo6 = new Repository(prg6, "log6.txt");
+        IController ctr6 = new Controller(repo6);
+
+
+        IStatement ex7 = new CompoundStatement(
+                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                new CompoundStatement(
+                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                        new CompoundStatement(
+                                new PrintStatement(new ReadHeapExpression(new VariableExpression("v"))),
+                                new CompoundStatement(
+                                        new WriteHeapStatement("v", new ValueExpression(new IntegerValue(30))),
+                                        new PrintStatement(new ReadHeapExpression(new VariableExpression("v")))
+                                )
+                        )
+                )
+        );
+
+        ProgramState prg7 = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
+                ex7
+        );
+
+        IRepository repo7 = new Repository(prg7, "log7.txt");
+        IController ctr7 = new Controller(repo7);
+
+
+
+        IStatement ex8 = new CompoundStatement(
+                                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                                new CompoundStatement(
+                                        new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                                        new CompoundStatement(
+                                                new VariableDeclarationStatement("a", new RefType(new RefType(new IntegerType()))),
+                                                new CompoundStatement(
+                                                        new NewStatement("a", new VariableExpression("v")),
+                                                        new CompoundStatement(
+                                                                new NewStatement("v", new ValueExpression(new IntegerValue(30))),
+                                                                new PrintStatement(
+                                                                    new ReadHeapExpression(
+                                                                        new ReadHeapExpression(
+                                                                                new VariableExpression("a")
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                );
+
+
+
+        ProgramState prg8 = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<StringValue, BufferedReader>(),
+                new MyHeap(),
+                ex8
+        );
+        IRepository repo8 = new Repository(prg8, "log8.txt");
+        IController ctr8 = new Controller(repo8);
+
+        IStatement exWhile = new CompoundStatement(
+                                    new VariableDeclarationStatement("v", new IntegerType()),
+                                    new CompoundStatement(
+                                        new AssignmentStatement("v", new ValueExpression(new IntegerValue(4))),
+                                        new CompoundStatement(
+                                                new WhileStatement(
+                                                        new RelationalExpression(
+                                                                new VariableExpression("v"),
+                                                                new ValueExpression(new IntegerValue(0)),
+                                                        ">"
+                                                        ),
+                                                        new CompoundStatement(
+                                                                new PrintStatement(new VariableExpression("v")),
+                                                                new AssignmentStatement(
+                                                                "v",
+                                                                    new ArithmeticExpression(
+                                                                        new VariableExpression("v"),
+                                                                        new ValueExpression(new IntegerValue(1)),
+                                                                        2  // '-' operation
+                                                                )
+                                                        )
+                                                )
+                                        ),
+                                        new PrintStatement(new VariableExpression("v"))
+                                )
+                        )
+                );
+
+
+        ProgramState prgW = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<>(),
+                new MyHeap(),
+                exWhile
+        );
+
+        IRepository repoW = new Repository(prgW, "logWhile.txt");
+        IController ctrW = new Controller(repoW);
+
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "Exit"));
@@ -139,6 +294,11 @@ public class Main {
         menu.addCommand(new RunExample("2", ex2.toString(), ctr2));
         menu.addCommand(new RunExample("3", ex3.toString(), ctr3));
         menu.addCommand(new RunExample("4", ex4.toString(), ctr4));
+        menu.addCommand(new RunExample("5", ex5.toString(), ctr5));
+        menu.addCommand(new RunExample("6", ex6.toString(), ctr6));
+        menu.addCommand(new RunExample("7", ex7.toString(), ctr7));
+        menu.addCommand(new RunExample("8", ex8.toString(), ctr8));
+        menu.addCommand(new RunExample("9", exWhile.toString(), ctrW));
         menu.show();
     }
         private static IStatement createFileExample() {
@@ -175,5 +335,6 @@ public class Main {
             )
             );
        }
+
 }
 

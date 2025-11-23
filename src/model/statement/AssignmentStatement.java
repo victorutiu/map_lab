@@ -27,7 +27,7 @@ public class AssignmentStatement implements IStatement {
             throw new VariableNotExistsException("Variable '" + variableName + "' was not declared.");
         }
 
-        IValue valueToAssign = expression.evaluate(symbolTable);
+        IValue valueToAssign = expression.evaluate(symbolTable, state.getHeap());
         IValue existingValue = symbolTable.lookup(variableName);
 
         if (!valueToAssign.getType().equals(existingValue.getType())) {

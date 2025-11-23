@@ -9,6 +9,7 @@ import model.type.IntegerType;
 import model.value.BooleanValue;
 import model.value.IValue;
 import model.value.IntegerValue;
+import model.adt.MyIHeap;
 
 public class RelationalExpression implements IExpression{
         private IExpression leftExpression;
@@ -22,13 +23,13 @@ public class RelationalExpression implements IExpression{
         }
 
         @Override
-        public IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception {
-            IValue leftValue = leftExpression.evaluate(symbolTable);
+        public IValue evaluate(MyIDictionary<String, IValue> symbolTable, MyIHeap heap) throws Exception {
+            IValue leftValue = leftExpression.evaluate(symbolTable, heap);
             if (!leftValue.getType().equals(new IntegerType())) {
                 throw new FirstOperandNotGoodException("Left operand is not an integer");
             }
 
-            IValue rightValue = rightExpression.evaluate(symbolTable);
+            IValue rightValue = rightExpression.evaluate(symbolTable, heap);
             if (!rightValue.getType().equals(new IntegerType())) {
                 throw new SecondOperandNotGoodException("Right operand is not an integer");
             }

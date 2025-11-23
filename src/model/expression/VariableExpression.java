@@ -5,6 +5,7 @@ import exceptions.VariableNotExistsException;
 import model.adt.MyIDictionary;
 import model.value.IValue;
 import exceptions.DictionaryException;
+import model.adt.MyIHeap;
 
 public class VariableExpression implements IExpression {
     private String variableName;
@@ -14,7 +15,7 @@ public class VariableExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception {
+    public IValue evaluate(MyIDictionary<String, IValue> symbolTable, MyIHeap heap) throws Exception {
         if (!symbolTable.isDefined(variableName)) {
             throw new VariableNotExistsException("Undefined variable: " + variableName);
         }

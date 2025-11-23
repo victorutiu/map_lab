@@ -36,7 +36,7 @@ public class ReadFileStatement implements IStatement {
             throw new ExpressionException("read file: variable '" + variableName + "' must be of type int.");
         }
 
-        IValue expressionValue = expression.evaluate(symbolTable);
+        IValue expressionValue = expression.evaluate(symbolTable, state.getHeap());
         if (!(expressionValue.getType() instanceof StringType)) {
             throw new ExpressionException("read file: expression must evaluate to a string value.");
         }

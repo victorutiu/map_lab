@@ -4,6 +4,7 @@ import exceptions.ExpressionException;
 import model.adt.MyIDictionary;
 import model.value.IValue;
 import exceptions.DictionaryException;
+import model.adt.MyIHeap;
 
 public class ValueExpression implements IExpression {
     private IValue constantValue;
@@ -13,7 +14,7 @@ public class ValueExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(MyIDictionary<String, IValue> symbolTable) throws Exception {
+    public IValue evaluate(MyIDictionary<String, IValue> symbolTable, MyIHeap heap) throws Exception {
         return constantValue;
     }
 

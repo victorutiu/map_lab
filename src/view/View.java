@@ -47,6 +47,7 @@ public class View {
                     new MyDictionary<>(),
                     new MyList<>(),
                     new MyDictionary<>(),
+                    new MyHeap(),
                     program
             );
 
@@ -156,6 +157,16 @@ public class View {
                                         new PrintStatement(new VariableExpression("v"))
                                 )
                         )
+                )
+        );
+    }
+
+    private IStatement createExample4() {
+        return new CompoundStatement(
+                new VariableDeclarationStatement("v", new RefType(new IntegerType())),
+                new CompoundStatement(
+                     new NewStatement("v", new ValueExpression(new IntegerValue(20))),
+                     new PrintStatement(new VariableExpression("v"))
                 )
         );
     }
