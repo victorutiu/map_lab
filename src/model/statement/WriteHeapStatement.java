@@ -6,7 +6,6 @@ import model.adt.MyIDictionary;
 import model.adt.MyIHeap;
 import model.expression.IExpression;
 import model.state.ProgramState;
-import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
 
@@ -39,7 +38,6 @@ public class WriteHeapStatement implements IStatement {
 
         IValue evaluated = expression.evaluate(symTable, heap);
 
-        // Check type compatibility
         if (!evaluated.getType().equals(refVal.getLocationType()))
             throw new ExpressionException("Type mismatch in wH for variable " + varName);
 
