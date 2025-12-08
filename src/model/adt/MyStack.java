@@ -41,5 +41,10 @@ public class MyStack<T> implements MyIStack<T> {
     public String toString() {
         return stack.toString();
     }
+
+    @Override
+    public MyIStack<T> createNewEmptyStack() {
+        return new MyStack<>();
+    }
 }
 

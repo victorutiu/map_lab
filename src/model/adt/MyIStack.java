@@ -8,6 +8,6 @@ public interface MyIStack<T> {
     T pop() throws Exception;
     T peek()  throws Exception;
     boolean isEmpty();
-
+    MyIStack<T> createNewEmptyStack();
 }
 

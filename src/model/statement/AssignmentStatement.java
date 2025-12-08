@@ -35,7 +35,7 @@ public class AssignmentStatement implements IStatement {
         }
 
         symbolTable.update(variableName, valueToAssign);
-        return state;
+        return null;
     }
 
     @Override

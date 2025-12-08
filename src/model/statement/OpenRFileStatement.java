@@ -43,7 +43,7 @@ public class OpenRFileStatement implements IStatement{
             throw new ExpressionException("open file: error opening file '" + fileNameValue + "': " + exception.getMessage());
         }
 
-        return state;
+        return null;
     }
 
     @Override

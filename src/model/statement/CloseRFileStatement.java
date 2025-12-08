@@ -48,7 +48,7 @@ public class CloseRFileStatement implements IStatement {
 
         fileTable.remove(fileNameValue);
 
-        return state;
+        return null;
     }
 
     @Override

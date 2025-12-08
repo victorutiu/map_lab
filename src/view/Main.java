@@ -322,6 +322,55 @@ public class Main {
         IRepository repoW = new Repository(prgW, "logWhile.txt");
         IController ctrW = new Controller(repoW);
 
+        IStatement exampleConcurrent = new CompoundStatement(
+                new VariableDeclarationStatement("v", new IntegerType()),
+                new CompoundStatement(
+                        new VariableDeclarationStatement("a", new RefType(new IntegerType())),
+                        new CompoundStatement(
+                                new AssignmentStatement("v", new ValueExpression(new IntegerValue(10))),
+                                new CompoundStatement(
+                                        new NewStatement("a", new ValueExpression(new IntegerValue(22))),
+                                        new CompoundStatement(
+
+                                                new ForkStatement(
+                                                        new CompoundStatement(
+                                                                new WriteHeapStatement("a", new ValueExpression(new IntegerValue(30))),
+                                                                new CompoundStatement(
+                                                                        new AssignmentStatement("v", new ValueExpression(new IntegerValue(32))),
+                                                                        new CompoundStatement(
+                                                                                new PrintStatement(new VariableExpression("v")),
+                                                                                new PrintStatement(new ReadHeapExpression(new VariableExpression("a")))
+                                                                        )
+                                                                )
+                                                        )
+                                                ),
+
+                                                new CompoundStatement(
+                                                        new PrintStatement(new VariableExpression("v")),
+                                                        new PrintStatement(
+                                                                new ReadHeapExpression(
+                                                                        new VariableExpression("a")
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+        ProgramState prgConcurrent = new ProgramState(
+                new MyStack<>(),
+                new MyDictionary<>(),
+                new MyList<>(),
+                new MyDictionary<>(),
+                new MyHeap(),
+                exampleConcurrent
+        );
+
+        IRepository repoConcurrent = new Repository(prgConcurrent, "logConcurrent.txt");
+        Controller ctrConcurrent = new Controller(repoConcurrent);
+
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "Exit"));
@@ -334,6 +383,7 @@ public class Main {
         menu.addCommand(new RunExample("7", ex7.toString(), ctr7));
         menu.addCommand(new RunExample("8", ex8.toString(), ctr8));
         menu.addCommand(new RunExample("9", exWhile.toString(), ctrW));
+        menu.addCommand(new RunExample("10", exampleConcurrent.toString(), ctrConcurrent));
         menu.show();
     }
         private static IStatement createFileExample() {

@@ -19,10 +19,6 @@ public class RefValue implements IValue {
         return locationType;
     }
 
-    public IType getLocationType(IType locationType) {
-        return locationType;
-    }
-
     @Override
     public IType getType() {
         return new RefType(locationType);

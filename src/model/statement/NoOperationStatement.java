@@ -8,7 +8,7 @@ import exceptions.ListException;
 public class NoOperationStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws Exception {
-        return state;
+        return null;
     }
 
     @Override

@@ -8,7 +8,7 @@ import model.value.IValue;
 import java.io.BufferedReader;
 import model.value.StringValue;
 import model.adt.MyIHeap;
-
+import exceptions.*;
 public class ProgramState {
 
     private MyIStack<IStatement> executionStack;
@@ -17,6 +17,14 @@ public class ProgramState {
     private IStatement originalProgram;
     private MyIDictionary<StringValue, BufferedReader> fileTable;
     private MyIHeap heap;
+
+    private int id;
+    private static int lastId = 1;
+
+    private static synchronized int generateId() {
+        return lastId++;
+    }
+
     public ProgramState(MyIStack<IStatement> executionStack,
                         MyIDictionary<String, IValue> symbolTable,
                         MyIList<IValue> outputList,
@@ -30,7 +38,27 @@ public class ProgramState {
         this.heap = heap;
         this.originalProgram = program.deepCopy();
         this.executionStack.push(this.originalProgram);
+
+        this.id = generateId();
     }
+
+    public ProgramState(
+            MyIStack<IStatement> stack,
+            MyIDictionary<String, IValue> symTable,
+            MyIList<IValue> out,
+            MyIDictionary<StringValue, BufferedReader> fileTable,
+            MyIHeap heap
+    ) {
+        this.executionStack = stack;
+        this.symbolTable = symTable;
+        this.outputList = out;
+        this.fileTable = fileTable;
+        this.heap = heap;
+
+        this.originalProgram = null;
+        this.id = generateId();
+    }
+
 
     public MyIStack<IStatement> getExecutionStack() {
         return executionStack;
@@ -60,8 +88,25 @@ public class ProgramState {
         this.heap = heap;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public boolean isNotCompleted() {
+        return !executionStack.isEmpty();
+    }
+
+    public ProgramState oneStep() throws Exception {
+        if (executionStack.isEmpty()) {
+            throw new StackException("program state stack is empty");
+        }
+
+        IStatement currentStatement = executionStack.pop();
+        return currentStatement.execute(this);
+    }
+
     @Override
     public String toString() {
-        return "ProgramState:\n" + "Execution Stack: " + executionStack + "\n" + "Symbol Table: " + symbolTable + "\n" + "Heap: " + heap.toString() + "\n" + "Output List: " + outputList + "\n";
+        return "ProgramState ID:" + id + "\n" + "Execution Stack: " + executionStack + "\n" + "Symbol Table: " + symbolTable + "\n" + "Heap: " + heap.toString() + "\n" + "Output List: " + outputList + "\n";
     }
 }

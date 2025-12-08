@@ -19,21 +19,29 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public ProgramState getCurrentProgram() {
-        return programStates.get(0);
+    public List<ProgramState> getProgramStates() {
+        return programStates;
     }
 
     @Override
-    public void loggingProgramStateExec() throws Exception{
+    public void setProgramStates(List<ProgramState> programStates) {
+        this.programStates = programStates;
+    }
+
+    @Override
+    public void loggingProgramStateExec(ProgramState programState) throws Exception{
         PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(loggingFile,true)));
 
-        ProgramState programState = getCurrentProgram();
+        logFile.println("Program State ID: " + programState.getId());
 
         logFile.println("ExeStack:");
         logFile.println(programState.getExecutionStack().toString());
 
         logFile.println("SymTable:");
         logFile.println(programState.getSymbolTable().toString());
+
+        logFile.println("Heap:");
+        logFile.println(programState.getHeap().toString());
 
         logFile.println("Out:");
         logFile.println(programState.getOutputList().toString());

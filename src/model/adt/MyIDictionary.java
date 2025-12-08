@@ -11,5 +11,6 @@ public interface MyIDictionary<Key, Value> {
     boolean isDefined(Key key);
     void remove(Key key) throws Exception;
     Map<Key, Value> getContent();
+    MyIDictionary<Key, Value> cloneDictionary();
 }
 

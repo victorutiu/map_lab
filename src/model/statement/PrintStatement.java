@@ -23,7 +23,7 @@ public class PrintStatement implements IStatement {
 
         IValue value = expression.evaluate(symbolTable, state.getHeap());
         outputList.add(value);
-        return state;
+        return null;
     }
 
     @Override

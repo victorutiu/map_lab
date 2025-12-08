@@ -56,4 +56,16 @@ public class MyDictionary<Key, Value> implements MyIDictionary<Key, Value> {
     public String toString() {
         return dictionary.toString();
     }
+
+    @Override
+    public MyIDictionary<Key, Value> cloneDictionary() {
+        MyDictionary<Key, Value> newDictionary = new MyDictionary<>();
+
+        for (Key key : this.dictionary.keySet()) {
+            newDictionary.dictionary.put(key, this.dictionary.get(key));
+        }
+
+        return newDictionary;
+    }
+
 }
