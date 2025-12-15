@@ -2,6 +2,7 @@ package model.expression;
 
 import exceptions.ExpressionException;
 import model.adt.MyIDictionary;
+import model.type.IType;
 import model.value.IValue;
 import exceptions.DictionaryException;
 import model.adt.MyIHeap;
@@ -27,4 +28,10 @@ public class ValueExpression implements IExpression {
     public String toString() {
         return constantValue.toString();
     }
+
+    @Override
+    public IType typecheck(MyIDictionary<String, IType> typeEnvironment) {
+        return constantValue.getType();
+    }
+
 }

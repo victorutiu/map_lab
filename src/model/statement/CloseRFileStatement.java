@@ -4,6 +4,7 @@ import exceptions.ExpressionException;
 import model.adt.MyIDictionary;
 import model.expression.IExpression;
 import model.state.ProgramState;
+import model.type.IType;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.StringValue;
@@ -59,6 +60,17 @@ public class CloseRFileStatement implements IStatement {
     @Override
     public String toString() {
         return "closeRFile(" + expression.toString() + ")";
+    }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType expressionType = expression.typecheck(typeEnvironment);
+
+        if (!expressionType.equals(new StringType())) {
+            throw new Exception("closeRFile: expression must have type string.");
+        }
+
+        return typeEnvironment;
     }
 
 

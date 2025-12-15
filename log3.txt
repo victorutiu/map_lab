@@ -250,3 +250,343 @@ SymTable:
 Out:
 [15, 50]
 
+Program State ID: 3
+ExeStack:
+[(string varf;(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[string varf, (varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[string varf, (varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(varf = src/test.in;(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))))]
+SymTable:
+{varf=}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[varf = src/test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[varf = src/test.in, (openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf);(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf), (int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(int varc;(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[int varc, (openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[int varc, (openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf, varc);(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf)))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf, varc), (print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf, varc), (print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(print(varc);(openRFile(varf, varc);(print(varc);closeRFile(varf))))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[print(varc), (openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[print(varc), (openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[(openRFile(varf, varc);(print(varc);closeRFile(varf)))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf, varc), (print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[openRFile(varf, varc), (print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=15}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[(print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[(print(varc);closeRFile(varf))]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[print(varc), closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[print(varc), closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15]
+
+Program State ID: 3
+ExeStack:
+[closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15, 50]
+
+Program State ID: 3
+ExeStack:
+[closeRFile(varf)]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15, 50]
+
+Program State ID: 3
+ExeStack:
+[]
+SymTable:
+{varf=src/test.in, varc=50}
+Heap:
+{}
+Out:
+[15, 50]
+

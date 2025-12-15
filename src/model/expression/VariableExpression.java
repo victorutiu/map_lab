@@ -3,6 +3,7 @@ package model.expression;
 import exceptions.ExpressionException;
 import exceptions.VariableNotExistsException;
 import model.adt.MyIDictionary;
+import model.type.IType;
 import model.value.IValue;
 import exceptions.DictionaryException;
 import model.adt.MyIHeap;
@@ -31,4 +32,14 @@ public class VariableExpression implements IExpression {
     public String toString() {
         return variableName;
     }
+
+    @Override
+    public IType typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        if (!typeEnvironment.isDefined(variableName)) {
+            throw new Exception("Variable " + variableName + " is not defined in the type environment");
+        }
+        return typeEnvironment.lookup(variableName);
+    }
+
+
 }

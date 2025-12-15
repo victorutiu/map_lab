@@ -222,3 +222,103 @@ SymTable:
 Out:
 [2]
 
+Program State ID: 1
+ExeStack:
+[(int v;(v = 2;print(v)))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[int v, (v = 2;print(v))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[int v, (v = 2;print(v))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[(v = 2;print(v))]
+SymTable:
+{v=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[(v = 2;print(v))]
+SymTable:
+{v=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[v = 2, print(v)]
+SymTable:
+{v=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[v = 2, print(v)]
+SymTable:
+{v=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[print(v)]
+SymTable:
+{v=2}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[print(v)]
+SymTable:
+{v=2}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 1
+ExeStack:
+[]
+SymTable:
+{v=2}
+Heap:
+{}
+Out:
+[2]
+

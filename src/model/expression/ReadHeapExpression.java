@@ -3,6 +3,8 @@ package model.expression;
 import exceptions.ExpressionException;
 import model.adt.MyIDictionary;
 import model.adt.MyIHeap;
+import model.type.IType;
+import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
 
@@ -36,6 +38,17 @@ public class ReadHeapExpression implements IExpression{
     @Override
     public String toString() {
         return "rH(" +  expression.toString() + ")";
+    }
+
+    @Override
+    public IType typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType expressionType = expression.typecheck(typeEnvironment);
+
+        if (!(expressionType instanceof RefType refType)) {
+            throw new Exception("The rH argument must have a RefType");
+        }
+
+        return refType.getInner();
     }
 
 }

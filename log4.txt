@@ -159,3 +159,203 @@ SymTable:
 Out:
 [true]
 
+Program State ID: 4
+ExeStack:
+[(int a;(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[int a, (int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[int a, (int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{a=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(int b;(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false)))))]
+SymTable:
+{a=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[int b, (a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[int b, (a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(a = 5;(b = 7;If(a < b) Then(print(true)) Else(print(false))))]
+SymTable:
+{a=0, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[a = 5, (b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=0, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[a = 5, (b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=0, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=5, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[(b = 7;If(a < b) Then(print(true)) Else(print(false)))]
+SymTable:
+{a=5, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[b = 7, If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[b = 7, If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=0}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=7}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[If(a < b) Then(print(true)) Else(print(false))]
+SymTable:
+{a=5, b=7}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[print(true)]
+SymTable:
+{a=5, b=7}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[print(true)]
+SymTable:
+{a=5, b=7}
+Heap:
+{}
+Out:
+[]
+
+Program State ID: 4
+ExeStack:
+[]
+SymTable:
+{a=5, b=7}
+Heap:
+{}
+Out:
+[true]
+

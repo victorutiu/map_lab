@@ -1,6 +1,7 @@
 package model.expression;
 
 import model.adt.MyIDictionary;
+import model.type.IType;
 import model.value.IValue;
 import model.value.IntegerValue;
 import model.type.IntegerType;
@@ -63,5 +64,22 @@ public class ArithmeticExpression implements IExpression {
         };
         return "(" + leftExpression.toString() + " " + operatorSymbol + " " + rightExpression.toString() + ")";
     }
+
+    @Override
+    public IType typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType type1 = leftExpression.typecheck(typeEnvironment);
+        IType type2 = rightExpression.typecheck(typeEnvironment);
+
+        if (!type1.equals(new IntegerType())) {
+            throw new Exception("First operand of arithmetic expression is not an integer.");
+        }
+
+        if (!type2.equals(new IntegerType())) {
+            throw new Exception("Second operand of arithmetic expression is not an integer.");
+        }
+
+        return new IntegerType();
+    }
+
 
 }

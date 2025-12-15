@@ -3,8 +3,10 @@ package model.statement;
 import exceptions.DictionaryException;
 import exceptions.ExpressionException;
 import exceptions.ListException;
+import model.adt.MyIDictionary;
 import model.state.ProgramState;
 import model.expression.IExpression;
+import model.type.IType;
 import model.value.IValue;
 
 public class PrintStatement implements IStatement {
@@ -35,4 +37,11 @@ public class PrintStatement implements IStatement {
     public String toString() {
         return "print(" + expression.toString() + ")";
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        expression.typecheck(typeEnvironment);
+        return typeEnvironment;
+    }
+
 }

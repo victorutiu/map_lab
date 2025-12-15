@@ -2,8 +2,10 @@ package model.statement;
 
 import exceptions.DictionaryException;
 import exceptions.ExpressionException;
+import model.adt.MyIDictionary;
 import model.state.ProgramState;
 import exceptions.ListException;
+import model.type.IType;
 
 public class CompoundStatement implements IStatement {
     private IStatement firstStatement;
@@ -32,4 +34,10 @@ public class CompoundStatement implements IStatement {
     public String toString() {
         return "("+ firstStatement.toString() + ";" + secondStatement.toString() + ")";
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        return secondStatement.typecheck(firstStatement.typecheck(typeEnvironment));
+    }
+
 }

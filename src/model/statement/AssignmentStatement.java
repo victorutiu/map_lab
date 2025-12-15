@@ -3,8 +3,10 @@ package model.statement;
 import exceptions.DictionaryException;
 import exceptions.ListException;
 import exceptions.VariableNotExistsException;
+import model.adt.MyIDictionary;
 import model.state.ProgramState;
 import model.expression.IExpression;
+import model.type.IType;
 import model.value.IValue;
 
 import java.beans.Expression;
@@ -48,4 +50,22 @@ public class AssignmentStatement implements IStatement {
     public String toString() {
         return variableName + " = " + expression.toString();
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        if (!typeEnvironment.isDefined(variableName)) {
+            throw new Exception("Variable '" + variableName + "' was not declared.");
+        }
+
+        IType variableType = typeEnvironment.lookup(variableName);
+        IType expressionType = expression.typecheck(typeEnvironment);
+
+        if (!variableType.equals(expressionType)) {
+            throw new Exception("Assignment error: variable '" + variableName +
+                    "' has type " + variableType + " but expression has type " + expressionType);
+        }
+
+        return typeEnvironment;
+    }
+
 }

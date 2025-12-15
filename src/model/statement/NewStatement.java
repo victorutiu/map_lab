@@ -61,4 +61,23 @@ public class NewStatement implements IStatement {
     public String toString() {
         return "new(" + varName + ", " + expression + ")";
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType variableType = typeEnvironment.lookup(varName);
+        IType expressionType = expression.typecheck(typeEnvironment);
+
+        if (!(variableType instanceof RefType refType)) {
+            throw new Exception("NEW statement error: variable " + varName + " is not a RefType.");
+        }
+
+        if (!refType.getInner().equals(expressionType)) {
+            throw new Exception("NEW statement error: variable " + varName +
+                    " expects Ref(" + refType.getInner() +
+                    ") but expression has type " + expressionType);
+        }
+
+        return typeEnvironment;
+    }
+
 }

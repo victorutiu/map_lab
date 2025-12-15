@@ -2,6 +2,7 @@ package model.statement;
 
 import exceptions.ExpressionException;
 import exceptions.VariableAlreadyExistsException;
+import model.adt.MyIDictionary;
 import model.state.ProgramState;
 import model.type.*;
 import model.value.*;
@@ -48,5 +49,12 @@ public class VariableDeclarationStatement implements IStatement {
     public String toString() {
         return variableType + " " + variableName;
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        typeEnvironment.put(variableName, variableType);
+        return typeEnvironment;
+    }
+
 }
 

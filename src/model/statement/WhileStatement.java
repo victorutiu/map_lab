@@ -6,6 +6,7 @@ import model.adt.MyIHeap;
 import model.expression.IExpression;
 import model.state.ProgramState;
 import model.type.BooleanType;
+import model.type.IType;
 import model.value.BooleanValue;
 import model.value.IValue;
 
@@ -51,4 +52,18 @@ public class WhileStatement implements IStatement {
     public String toString() {
         return "While("+ expression +")" + statement;
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType conditionType = expression.typecheck(typeEnvironment);
+
+        if (!conditionType.equals(new BooleanType())) {
+            throw new Exception("WHILE condition is not of type boolean.");
+        }
+
+        statement.typecheck(typeEnvironment.cloneDictionary());
+
+        return typeEnvironment;
+    }
+
 }

@@ -149,4 +149,9 @@ public class Controller implements IController {
     private List<ProgramState> removeCompletedProgramStates(List<ProgramState> programStates) {
         return programStates.stream().filter(ProgramState::isNotCompleted).collect(Collectors.toList());
     }
+
+    public IRepository getRepository() {
+        return repository;
+    }
+
 }

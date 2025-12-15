@@ -6,6 +6,8 @@ import model.adt.MyIDictionary;
 import model.adt.MyIHeap;
 import model.expression.IExpression;
 import model.state.ProgramState;
+import model.type.IType;
+import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
 
@@ -55,4 +57,25 @@ public class WriteHeapStatement implements IStatement {
     public String toString() {
         return "wH(" + varName + ", " + expression + ")";
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+
+        IType variableType = typeEnvironment.lookup(varName);
+
+        if (!(variableType instanceof RefType refType)) {
+            throw new Exception("wH: variable " + varName + " must have a RefType.");
+        }
+
+        IType expressionType = expression.typecheck(typeEnvironment);
+
+        if (!expressionType.equals(refType.getInner())) {
+            throw new Exception("wH: type mismatch. Variable " + varName +
+                    " expects " + refType.getInner() +
+                    " but expression has " + expressionType);
+        }
+
+        return typeEnvironment;
+    }
+
 }

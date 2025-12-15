@@ -5,6 +5,7 @@ import exceptions.FirstOperandNotGoodException;
 import exceptions.SecondOperandNotGoodException;
 import model.adt.MyIDictionary;
 import model.type.BooleanType;
+import model.type.IType;
 import model.type.IntegerType;
 import model.value.BooleanValue;
 import model.value.IValue;
@@ -57,4 +58,21 @@ public class RelationalExpression implements IExpression{
         public String toString(){
             return leftExpression.toString() + " " + operator + " " + rightExpression.toString();
         }
+
+    @Override
+    public IType typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        IType leftType = leftExpression.typecheck(typeEnvironment);
+        IType rightType = rightExpression.typecheck(typeEnvironment);
+
+        if (!leftType.equals(new IntegerType())) {
+            throw new Exception("Left operand of relational expression is not an integer");
+        }
+
+        if (!rightType.equals(new IntegerType())) {
+            throw new Exception("Right operand of relational expression is not an integer");
+        }
+
+        return new BooleanType();
+    }
+
 }

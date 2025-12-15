@@ -2,8 +2,10 @@ package model.statement;
 
 import exceptions.DictionaryException;
 import exceptions.ExpressionException;
+import model.adt.MyIDictionary;
 import model.state.ProgramState;
 import exceptions.ListException;
+import model.type.IType;
 
 public class NoOperationStatement implements IStatement {
     @Override
@@ -19,4 +21,9 @@ public class NoOperationStatement implements IStatement {
     public String toString(){
         return "NoOperationStatement";
     }
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) {
+        return typeEnvironment;
+    }
+
 }

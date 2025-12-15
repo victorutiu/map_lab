@@ -4,6 +4,7 @@ import exceptions.ExpressionException;
 import model.adt.MyIDictionary;
 import model.expression.IExpression;
 import model.state.ProgramState;
+import model.type.IType;
 import model.type.IntegerType;
 import model.type.StringType;
 import model.value.IValue;
@@ -78,4 +79,25 @@ public class ReadFileStatement implements IStatement {
     public String toString() {
         return "openRFile(" + expression.toString() + ", " + variableName + ")";
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+
+        if (!typeEnvironment.isDefined(variableName)) {
+            throw new Exception("readFile: variable '" + variableName + "' is not declared.");
+        }
+
+        IType variableType = typeEnvironment.lookup(variableName);
+        if (!variableType.equals(new IntegerType())) {
+            throw new Exception("readFile: variable '" + variableName + "' must be of type int.");
+        }
+
+        IType expressionType = expression.typecheck(typeEnvironment);
+        if (!expressionType.equals(new StringType())) {
+            throw new Exception("readFile: expression must have type string.");
+        }
+
+        return typeEnvironment;
+    }
+
 }

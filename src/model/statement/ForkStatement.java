@@ -5,6 +5,7 @@ import model.adt.MyIDictionary;
 import model.adt.MyIList;
 import model.adt.MyIHeap;
 import model.state.ProgramState;
+import model.type.IType;
 import model.value.IValue;
 import model.state.ProgramState;
 
@@ -38,4 +39,11 @@ public class ForkStatement implements IStatement{
     public IStatement deepCopy() {
         return new ForkStatement(statement.deepCopy());
     }
+
+    @Override
+    public MyIDictionary<String, IType> typecheck(MyIDictionary<String, IType> typeEnvironment) throws Exception {
+        statement.typecheck(typeEnvironment.cloneDictionary());
+        return typeEnvironment;
+    }
+
 }
