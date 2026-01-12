@@ -9,5 +9,6 @@ public interface MyIStack<T> {
     T peek()  throws Exception;
     boolean isEmpty();
     MyIStack<T> createNewEmptyStack();
+    List<T> getAll();
 }
 

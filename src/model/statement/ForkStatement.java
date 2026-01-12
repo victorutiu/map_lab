@@ -7,7 +7,6 @@ import model.adt.MyIHeap;
 import model.state.ProgramState;
 import model.type.IType;
 import model.value.IValue;
-import model.state.ProgramState;
 
 public class ForkStatement implements IStatement{
     private IStatement statement;
@@ -31,11 +30,6 @@ public class ForkStatement implements IStatement{
     }
 
     @Override
-    public String toString() {
-        return "fork(" + statement.toString() + ")";
-    }
-
-    @Override
     public IStatement deepCopy() {
         return new ForkStatement(statement.deepCopy());
     }
@@ -46,4 +40,8 @@ public class ForkStatement implements IStatement{
         return typeEnvironment;
     }
 
+    @Override
+    public String toString() {
+        return "fork(" + statement.toString() + ")";
+    }
 }

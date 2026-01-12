@@ -154,4 +154,46 @@ public class Controller implements IController {
         return repository;
     }
 
+    @Override
+    public void oneStep() throws Exception {
+        if (executor == null || executor.isShutdown()) {
+            executor = Executors.newFixedThreadPool(2);
+        }
+
+        List<ProgramState> programStateList = removeCompletedProgramStates(repository.getProgramStates());
+
+        // nothing left to execute
+        if (programStateList.isEmpty()) {
+            executor.shutdownNow();
+            repository.setProgramStates(programStateList);
+            return;
+        }
+
+        // --- same GC logic as in allStep, but only once ---
+        ProgramState firstProgramState = programStateList.get(0);
+        Map<Integer, IValue> heapContent = firstProgramState.getHeap().getContent();
+
+        List<Integer> roots = programStateList.stream()
+                .flatMap(prg -> getAddressFromSymbolTable(
+                        prg.getSymbolTable().getContent().values()
+                ).stream())
+                .collect(Collectors.toList());
+
+        List<Integer> reachable = getReachableAddresses(roots, heapContent);
+        Map<Integer, IValue> newHeap = safeGarbageCollector(reachable, heapContent);
+        firstProgramState.getHeap().setContent(newHeap);
+
+        // execute ONE step for all program states
+        oneStepForAllProg(programStateList);
+
+        // remove completed after step
+        programStateList = removeCompletedProgramStates(repository.getProgramStates());
+        repository.setProgramStates(programStateList);
+
+        if (programStateList.isEmpty()) {
+            executor.shutdownNow();
+        }
+    }
+
+
 }

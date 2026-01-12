@@ -8,5 +8,6 @@ public interface IController {
     void allStep() throws Exception;
     void setDisplayFlag(boolean value);
     IRepository getRepository();
+    void oneStep() throws Exception;
 }
 

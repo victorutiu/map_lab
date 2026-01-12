@@ -46,5 +46,11 @@ public class MyStack<T> implements MyIStack<T> {
     public MyIStack<T> createNewEmptyStack() {
         return new MyStack<>();
     }
+
+    @Override
+    public List<T> getAll() {
+        return new ArrayList<>(stack);
+    }
+
 }
 
